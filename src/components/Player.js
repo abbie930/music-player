@@ -27,7 +27,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   }
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime
-    const duration = e.target.duration
+    const duration = e.target.duration || 0
     setSongInfo({ ...songInfo, currentTime: current, duration })
   }
   const dragHandler = (e) => {
