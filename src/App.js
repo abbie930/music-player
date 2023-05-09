@@ -18,9 +18,18 @@ function App() {
   const [libraryStatus, setLibraryStatus] = useState(false)
   return (
     <div className="App">
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+      <Nav 
+        libraryStatus={libraryStatus} 
+        setLibraryStatus={setLibraryStatus} 
+      />
       <Song currentSong={currentSong} />
-      <Player setIsPlaying={setIsPlaying} isPlaying={isPlaying} currentSong={currentSong} />
+      <Player 
+        setIsPlaying={setIsPlaying} 
+        isPlaying={isPlaying} 
+        currentSong={currentSong}
+        songs={songs}
+        setCurrentSong={setCurrentSong}
+      />
       <Library
         songs={songs}
         setCurrentSong={setCurrentSong}
