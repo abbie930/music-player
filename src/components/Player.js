@@ -4,8 +4,7 @@ import {
   faPlay, 
   faAngleLeft, 
   faAngleRight,
-  faPause,
-  faCirclePlay
+  faPause
  } from "@fortawesome/free-solid-svg-icons"
 
 const Player = ({ currentSong, isPlaying, setIsPlaying}) => {
