@@ -41,14 +41,19 @@ const Player = ({ currentSong, isPlaying, setIsPlaying, songs, setCurrentSong })
   const getTime = (time) => {
     return Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2)
   }
-  const skipTrackHandler = (direction) => {
+  const skipTrackHandler = async (direction) => {
     const currentIndex = songs.findIndex((song) => song.id === currentSong.id)
     if (direction === 'skip-forward') {
-      setCurrentSong(songs[currentIndex + 1 === songs.length ? 0 : currentIndex + 1])
+      await setCurrentSong(songs[currentIndex + 1 === songs.length ? 0 : currentIndex + 1])
     }
     if (direction === 'skip-back') {
-      setCurrentSong(songs[currentIndex === 0 ? songs.length - 1 : currentIndex - 1])
+      await setCurrentSong(songs[currentIndex === 0 ? songs.length - 1 : currentIndex - 1])
     }
+    // if (isPlaying) audioRef.current.play()
+  }
+  const songEndHandler = async () => {
+    const currentIndex = songs.findIndex((song) => song.id === currentSong.id)
+    await setCurrentSong(songs[currentIndex + 1 === songs.length ? 0 : currentIndex + 1])
   }
   //State
   const [songInfo, setSongInfo] = useState({
@@ -104,6 +109,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying, songs, setCurrentSong })
         onLoadedData={autoPlayHandler}
         onTimeUpdate={timeUpdateHandler}
         onLoadedMetadata={timeUpdateHandler}
+        onEnded={songEndHandler}
         ref={audioRef}
         src={currentSong.audio}
       ></audio>
