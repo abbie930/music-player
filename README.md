@@ -4,6 +4,8 @@ This is a music player application built with React.
 
 ![cover](./public/lofi_vibes.gif)
 
+![cover](./public/mobile.jpg)
+
 ## Live Demo
 
 You can access the live demo of this music player here. - [Lofi Vibes](https://stirring-seahorse-18cf7b.netlify.app/)
