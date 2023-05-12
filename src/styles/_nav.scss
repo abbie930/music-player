@@ -3,24 +3,105 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  .title {
+    display: flex;
+    align-items: center;
+    & .headphone-icon {
+    position: relative;
+    top: 2px;
+    transform: rotate(15deg);
+    font-size: 1.5rem;
+  }
+  }
+  h1 {
+    font-family: 'Caveat', cursive, 'Montserrat', sans-serif;
+    font-size: 3rem;
+  }
   button {
     background: transparent;
+    color: rgb(24, 20, 19);
+    font-size: 1.2rem;
     border: none;
     cursor: pointer;
-    border: 2px solid rgb(65, 65, 65);
-    padding: 0.5rem;
+    border-radius: 40%;
+    padding: 0.4rem;
     transition: all 0.3s ease;
-    &:hover {
-      background: rgb(65, 65, 65);
-      color: white;
+    @include themify($themes) {
+      color: themed('colorText');
+    }
+  }
+  .list-btn:hover {
+      transform: scale(1.2);
+  }
+
+  .toggle-btn-section {
+    display: flex;
+    justify-content: flex-end;
+    .toggle-checkbox {
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+
+      .toggle-btn__input {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+      }
+
+      .toggle-btn__input-label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 40px;
+        height: 20px;
+        display: block;
+        border-radius: 23px;
+        position: relative;
+        border: none;
+        margin: 0 5px 0 8px;
+
+        @include themify($themes) {
+          background-color: themed('toggleBackground');
+        }
+
+        &::after {
+          content: '?';
+          position: absolute;
+          top: 3px;
+          right: 3px;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          transition: 0.3s;
+          box-shadow: 0 5px 10px rgba(153, 153, 153, 0.4);
+          background-color: #fff;
+        }
+      }
+
+      .toggle-btn__input:checked ~ .toggle-btn__input-label {
+        &:after {
+          background: #8f8f98df;
+          right: calc(100% - 3px);
+          transform: translateX(100%);
+        }
+      }
+
+      .toggle-btn__input:checked ~ .toggle-btn__theme {
+        &:after {
+          background: #fff;
+          right: calc(100% - 3px);
+          transform: translateX(100%);
+        }
+      }
     }
   }
 }
 
+
 @media screen and (max-width: 768px) {
   nav {
-    button {
-      z-index: 10;
+    button, .toggle-btn-section {
+      z-index: 100;
     }
   }
 }
