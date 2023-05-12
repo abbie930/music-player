@@ -1,20 +1,33 @@
+@import "./theme";
+
 * {
   margin :0;
   padding: 0;
   box-sizing: border-box;
 }
 h1,h2,h3 {
-  color: rgb(54, 54, 54)
+  color: rgb(54, 54, 54);
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', 'Lato', sans-serif;
 }
 h3,h4 {
   font-weight: 400;
-  color: rgb(100, 100, 100)
+  color: rgb(100, 100, 100);
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 .App {
   transition: all 0.5s ease;
+  @include themify($themes) {
+    background: themed('colorBackground');
+    color: themed('colorText');
+    height: themed('height');
+  }
 }
 .library-active {
   margin-left: 20rem;

@@ -1,12 +1,14 @@
 .library {
+  @include themify($themes) {
+    background: themed('colorBackground');
+  }
   position: fixed;
   top: 0;
   left: 0;
   width: 20rem;
   height: 100%;
-  background: white;
   box-shadow: 2px 2px 50px rgb(204, 204, 204);
-  overflow: scroll;
+  overflow: auto;
   transform: translateX(-100%);
   transition: all 0.5s ease;
   opacity: 0;
@@ -25,6 +27,9 @@
     width: 30%;
   }
   &:hover {
+    @include themify($themes) {
+    background: themed('hoverBackground');
+  }
     background: rgb(222, 222, 222);
   }
 }
@@ -58,6 +63,9 @@
 }
 
 .selected {
+  @include themify($themes) {
+    background: themed('selectedBackground');
+  }
   background: rgb(219, 234, 239);
 }
 .active-library {
