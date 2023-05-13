@@ -4,7 +4,7 @@ This is a music player application built with React.
 
 ![cover](./public/lofi_vibes.gif)
 
-![cover](./public/mobile.jpg)
+![cover](./public/mobile.jpeg)
 
 ## Live Demo
 
