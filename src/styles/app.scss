@@ -33,6 +33,12 @@ h3,h4 {
   margin-left: 20rem;
 }
 
+@media screen and (max-width: 414px) {
+  .library-active {
+  margin-left: 5rem;
+}
+}
+
 @import "./song";
 @import "./player";
 @import "./library";
